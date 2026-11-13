@@ -5,13 +5,18 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Cho phép MoneyFlow sử dụng Face ID để mở khóa bảo mật ứng dụng.",
+        "NSCameraUsageDescription": "Cho phép MoneyFlow chụp ảnh hóa đơn đính kèm giao dịch.",
+        "NSPhotoLibraryUsageDescription": "Cho phép MoneyFlow chọn ảnh hóa đơn hoặc ảnh đại diện từ thư viện."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#DCFCE7",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
@@ -20,6 +25,23 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-sharing",
+      "@react-native-community/datetimepicker",
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Cho phép MoneyFlow sử dụng Face ID để mở khóa bảo mật ứng dụng."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Cho phép MoneyFlow chọn ảnh hóa đơn hoặc ảnh đại diện từ thư viện.",
+          "cameraPermission": "Cho phép MoneyFlow chụp ảnh hóa đơn đính kèm giao dịch."
+        }
+      ]
+    ]
   }
 }
